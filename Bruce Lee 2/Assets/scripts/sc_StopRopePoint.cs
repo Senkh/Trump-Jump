@@ -6,6 +6,8 @@ public class sc_StopRopePoint : MonoBehaviour {
 
 
     private Rotate ropeRotator;
+    public int currentScore = 0;
+
     // Use this for initialization
     void Start () {
         ropeRotator = GameObject.Find("RopeGravityCenter").GetComponent<Rotate>();
@@ -23,6 +25,11 @@ public class sc_StopRopePoint : MonoBehaviour {
         {
             ropeRotator.StopRotation();
             ropeRotator.toStop = false;
+        }
+        else if (hit.gameObject.tag == "Rope" && !ropeRotator.toStop)
+        {
+            currentScore++;
+            
         }
 
     }

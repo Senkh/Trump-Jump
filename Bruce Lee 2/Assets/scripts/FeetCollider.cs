@@ -8,11 +8,18 @@ public class FeetCollider : MonoBehaviour {
 
     private Animator animator;
     private Rotate ropeRotator;
+    private sc_StopRopePoint ropeFinishPoint;
+    private int previousHighScore ;
+    private sc_playerT playerScript;
     // Use this for initialization
     void Start () {
-        
-        animator = GameObject.Find("T-Jump_Model-20171201 (1)").GetComponent<Animator>();
-        ropeRotator = GameObject.Find("RopeGravityCenter").GetComponent<Rotate>(); 
+        GameObject playerModel = GameObject.Find("T-Jump_Model-20171201 (1)");
+        animator = playerModel.GetComponent<Animator>();
+        playerScript = playerModel.GetComponent<sc_playerT>();
+        previousHighScore = playerScript.totalHighScore;
+
+        ropeRotator = GameObject.Find("RopeGravityCenter").GetComponent<Rotate>();
+        ropeFinishPoint = GameObject.Find("RopeStopPoint").GetComponent<sc_StopRopePoint>();
     }
 	
 	// Update is called once per frame
@@ -28,9 +35,11 @@ public class FeetCollider : MonoBehaviour {
             //GetComponent<>
             animator.SetBool("Colided", true);
             ropeRotator.toStop = true;
-
-            //ropeRotator.StopRotation();
-            //Invoke("ColisionOf", 5.0f);
+            if (ropeFinishPoint.currentScore > previousHighScore)
+            {
+                animator.SetBool("HighScore", true);
+                playerScript.totalHighScore = ropeFinishPoint.currentScore;
+            }
         }
 
     }
