@@ -34,7 +34,7 @@ public class sc_playerT : MonoBehaviour {
         {
             //rb.AddForce(transform.up * force, ForceMode.Impulse);
             //rb.AddForce(new Vector3(0, Jumpforce, 0), ForceMode.Impulse);
-            animator.SetInteger("jumpInt", 1);
+            animator.SetBool("Jump", true);
             grounded = false;
             
         }
@@ -55,7 +55,12 @@ public class sc_playerT : MonoBehaviour {
         {
             grounded = true;
         }
-
+        if (hit.gameObject.tag == "Rope")
+        {
+            //GetComponent<>
+            animator.SetBool("Colided", true);
+            //Invoke("ColisionOf", 5.0f);
+        }
         
     }
 

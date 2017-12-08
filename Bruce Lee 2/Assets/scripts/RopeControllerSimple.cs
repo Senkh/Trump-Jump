@@ -169,7 +169,7 @@ public class RopeControllerSimple : MonoBehaviour
 
 
         //Add the positions to the line renderer
-        lineRenderer.positionCount = positions.Length;
+        lineRenderer.numPositions = positions.Length;
 
         lineRenderer.SetPositions(positions);
 
@@ -215,7 +215,6 @@ public class RopeControllerSimple : MonoBehaviour
         BoxCollider col = new GameObject("Collider").AddComponent<BoxCollider>();
 
         col.tag = "RopeCollider";
-        col.isTrigger = true;
         col.transform.parent = lineRenderer.transform; // Collider is added as child object of line
         //float lineLength = Vector3.Distance(startPos, endPos); // length of line
         col.size = new Vector3(0.05f, 0.05f, 0.05f); // size of collider is set where X is length of line, Y is width of line, Z will be set as per requirement

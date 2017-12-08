@@ -168,7 +168,7 @@ public class RopeControllerRealisticNoSpring : MonoBehaviour
             positions[i] = allRopeSections[i].pos;
         }
 
-        lineRenderer.positionCount = positions.Length;
+        lineRenderer.numPositions = positions.Length;
 
         lineRenderer.SetPositions(positions);
     }

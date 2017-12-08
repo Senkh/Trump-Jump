@@ -8,7 +8,6 @@ TagManager:
   - Camera2
   - Rope
   - RopeCollider
-  - ShoeColider
   layers:
   - Default
   - TransparentFX
