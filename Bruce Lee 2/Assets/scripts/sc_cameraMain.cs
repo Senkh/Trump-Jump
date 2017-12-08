@@ -15,12 +15,12 @@ public class sc_cameraMain : MonoBehaviour {
     void Start () {
 
         mainCam = Camera.main;
-        //secCam = GameObject.FindGameObjectWithTag("Camera2").GetComponent<Camera>();
-       // UICamera = GameObject.FindGameObjectWithTag("Camera2").GetComponent<Camera>();
 
-        mainCam.enabled = false;
-        secCam.enabled = true;
-        UICamera.enabled = false;
+        secCam = UICamera = mainCam;
+
+        mainCam.enabled = true;
+        //secCam.enabled = false;
+        //UICamera.enabled = false;
     }
 
     public void EnableMainCamera()
