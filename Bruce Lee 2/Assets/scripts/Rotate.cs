@@ -6,6 +6,7 @@ public class Rotate : MonoBehaviour {
 
     private Rigidbody rb;
     private bool start = false;
+    public bool toStop = false;
 
 
     // Use this for initialization
@@ -26,11 +27,13 @@ public class Rotate : MonoBehaviour {
         if (Input.GetKeyDown(KeyCode.Return))
         {
             start = !start;
+            toStop = false;
         }
     }
 
     public void StopRotation()
     {
         start = false;
+        toStop = false;
     }
 }

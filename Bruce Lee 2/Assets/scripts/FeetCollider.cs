@@ -27,6 +27,8 @@ public class FeetCollider : MonoBehaviour {
         {
             //GetComponent<>
             animator.SetBool("Colided", true);
+            ropeRotator.toStop = true;
+
             //ropeRotator.StopRotation();
             //Invoke("ColisionOf", 5.0f);
         }
