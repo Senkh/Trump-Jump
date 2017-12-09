@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class sc_playerT : MonoBehaviour {
 
@@ -10,6 +11,7 @@ public class sc_playerT : MonoBehaviour {
     //public float Jumpforce = 5.0f;
     private Animator animator;
     public int totalHighScore;
+    public Text congrats;
 
     
     int jumpHash = Animator.StringToHash("New State");
@@ -22,7 +24,7 @@ public class sc_playerT : MonoBehaviour {
         animator = GetComponent<Animator>();
         totalHighScore = 0;
         Random.InitState(GetInstanceID());
-
+        congrats = GameObject.Find("Congrats").GetComponent<Text>(); ;
 
     }
 	
@@ -39,13 +41,14 @@ public class sc_playerT : MonoBehaviour {
             {
                 animator.SetBool("HighScore", false);
                 animator.SetBool("goIdle", true);
+                congrats.enabled = false;
             }
             else
                 if (!animator.GetCurrentAnimatorStateInfo(0).IsTag("Jump"))
             {
 
                 //animator.SetInteger("jumpInt", Random.Range(1, 4));
-                animator.SetInteger("jumpInt", 2);
+                animator.SetInteger("jumpInt", 3);
             }
             
             //grounded = false;
@@ -62,15 +65,6 @@ public class sc_playerT : MonoBehaviour {
     }
 
 
-   // void OnCollisionEnter(Collision hit)
-   // {
-    //    if (hit.gameObject.tag == "Ground")
-   //     {
-   //         grounded = true;
-   //     }
-
-        
-  //  }
 
 
 }

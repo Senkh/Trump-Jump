@@ -20,13 +20,10 @@ public class Rotate : MonoBehaviour {
         if(start)
             transform.Rotate(Vector3.forward * Time.deltaTime * 100);
         //transform.Rotate(Vector3.up * Time.deltaTime, Space.World);
-    }
-
-    private void FixedUpdate()
-    {
         if (Input.GetKeyDown(KeyCode.Return))
         {
-            start = !start;
+            //start = !start;
+            start = true;
             toStop = false;
         }
     }
