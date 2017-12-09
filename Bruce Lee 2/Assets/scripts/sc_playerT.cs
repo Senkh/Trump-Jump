@@ -12,6 +12,7 @@ public class sc_playerT : MonoBehaviour {
     private Animator animator;
     public int totalHighScore;
     public Text congrats;
+    public int WhichJump;
 
     
     int jumpHash = Animator.StringToHash("New State");
@@ -24,7 +25,8 @@ public class sc_playerT : MonoBehaviour {
         animator = GetComponent<Animator>();
         totalHighScore = 0;
         Random.InitState(GetInstanceID());
-        congrats = GameObject.Find("Congrats").GetComponent<Text>(); ;
+        congrats = GameObject.Find("Congrats").GetComponent<Text>();
+        WhichJump = 3;
 
     }
 	
@@ -48,7 +50,7 @@ public class sc_playerT : MonoBehaviour {
             {
 
                 //animator.SetInteger("jumpInt", Random.Range(1, 4));
-                animator.SetInteger("jumpInt", 3);
+                animator.SetInteger("jumpInt", WhichJump);
             }
             
             //grounded = false;
