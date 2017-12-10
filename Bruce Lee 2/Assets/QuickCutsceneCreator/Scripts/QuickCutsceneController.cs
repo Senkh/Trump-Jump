@@ -585,10 +585,10 @@ public class QuickCutsceneController : MonoBehaviour {
 	}
 
     //Enable Main Cam
-    public void EnableMainCam()
-    {
-        GameObject.Find("Main Camera").GetComponent<sc_cameraMain>().EnableMainCamera();
-    }
+  //  public void EnableMainCam()
+  //  {
+   //     GameObject.Find("Main Camera").GetComponent<sc_cameraMain>().EnableMainCamera();
+   // }
 
 	//This function ends the cutscene
 	public void EndCutscene()
@@ -626,7 +626,7 @@ public class QuickCutsceneController : MonoBehaviour {
 		
 		//Broadcast that we have ended the cutscene. Because we only do this at specific intervals, it is fine to use over delegates/events.
 		BroadcastMessage("OnCutsceneEnd", SendMessageOptions.DontRequireReceiver);
-        EnableMainCam();
+       // EnableMainCam();
 
     }
 

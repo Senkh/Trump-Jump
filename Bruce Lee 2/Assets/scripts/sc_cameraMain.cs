@@ -7,41 +7,51 @@ public class sc_cameraMain : MonoBehaviour {
 
 
     private Camera mainCam;
-    public Camera secCam;
-    public Camera UICamera;
+    private Camera cutCam;
+    private Camera UICamera;
 
 
     // Use this for initialization
     void Start () {
 
-        mainCam = Camera.main;
+        mainCam = GameObject.Find("Main Camera").GetComponent<Camera>();
+        cutCam = GameObject.Find("CameraCut1").GetComponent<Camera>();
+        UICamera = GameObject.Find("UICamera").GetComponent<Camera>();
 
-        secCam = UICamera = mainCam;
+        //cutCam = UICamera = mainCam;
 
-        mainCam.enabled = true;
-        //secCam.enabled = false;
-        //UICamera.enabled = false;
+        goToMainCam();
     }
 
-    public void EnableMainCamera()
+
+    public void goToCutScenecam()
+    {
+        mainCam.enabled = false;
+        cutCam.enabled = true;
+        UICamera.enabled = false;
+        UICamera.enabled = true;
+
+    }
+
+    public void goToMainCam()
     {
         mainCam.enabled = true;
-        secCam.enabled = false;
+        cutCam.enabled = false;
+        UICamera.enabled = false;
         UICamera.enabled = true;
+
     }
-	
-	// Update is called once per frame
-	void Update () {
+
+    // Update is called once per frame
+    void Update () {
         if (Input.GetKeyDown(KeyCode.Keypad1) || Input.GetKeyDown(KeyCode.Alpha1))
         {
-            mainCam.enabled = true;
-            secCam.enabled = false;
+            goToMainCam();
 
         }
         if (Input.GetKeyDown(KeyCode.Keypad2) || Input.GetKeyDown(KeyCode.Alpha2))
         {
-            mainCam.enabled = false;
-            secCam.enabled = true;
+            goToCutScenecam();
 
         }
         if (Input.GetKeyDown(KeyCode.Keypad3) || Input.GetKeyDown(KeyCode.Alpha3))

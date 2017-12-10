@@ -14,8 +14,13 @@ public class FeetCollider : MonoBehaviour {
     private sc_audioController _audioController;
     private int previousHighScore ;
     private sc_playerT playerScript;
+    private sc_cameraMain _cameraControl;
+
     public Text HighScore;
+    public Text Score;
     public Text congrats;
+
+    private QuickCutsceneController _cutSceneController;
 
     // Use this for initialization
     void Start () {
@@ -27,7 +32,11 @@ public class FeetCollider : MonoBehaviour {
         ropeRotator = GameObject.Find("RopeGravityCenter").GetComponent<Rotate>();
         ropeFinishPoint = GameObject.Find("RopeStopPoint").GetComponent<sc_StopRopePoint>();
         _audioController = GameObject.Find("AudioController").GetComponent<sc_audioController>();
+        _cutSceneController = GameObject.Find("Cutscene").GetComponent<QuickCutsceneController>();
+        _cameraControl = GameObject.Find("Main Camera").GetComponent<sc_cameraMain>();
+
         HighScore = GameObject.Find("HighScore").GetComponent<Text>();
+        Score = GameObject.Find("Score").GetComponent<Text>();
         congrats = GameObject.Find("Congrats").GetComponent<Text>();
 
         //initiate rand
@@ -46,6 +55,39 @@ public class FeetCollider : MonoBehaviour {
 
     }
 
+    private void StopCutScene()
+    {
+        _cutSceneController.EndCutscene();
+        _cameraControl.goToMainCam();
+    }
+
+    private void StartCutScene()
+    {
+        //Go to CutScene
+        _cutSceneController.ActivateCutscene();
+        _cameraControl.goToCutScenecam();
+        Invoke("StopCutScene", 9);
+    }
+
+    private void DoHighScore()
+    {
+
+        int whichScore = UnityEngine.Random.Range(1, 4);
+        //High Score Sequence
+        animator.SetBool("HighScore", true);
+
+        congrats.enabled = true;
+
+        //Open Cutscene
+        StartCutScene();
+
+        //when Highscore play Highscore sound
+        _audioController.PlayHighScoreAudio(whichScore);
+        ropeFinishPoint.currentScore = 0;
+
+        Score.text = newScore(Score.text, ropeFinishPoint.currentScore);
+    }
+
     void OnTriggerEnter(Collider hit)
     {
 
@@ -55,7 +97,6 @@ public class FeetCollider : MonoBehaviour {
             animator.SetBool("Colided", true);
             ropeRotator.toStop = true;
 
-            int whichFall = UnityEngine.Random.Range(1, 4);
 
             //Stops what character is saying
             if (_audioController.isAnythingPlayingButMusic())
@@ -63,18 +104,14 @@ public class FeetCollider : MonoBehaviour {
 
             if (ropeFinishPoint.currentScore > previousHighScore)
             {
-                //High Score Sequence
-                animator.SetBool("HighScore", true);
                 playerScript.totalHighScore = ropeFinishPoint.currentScore;
                 HighScore.text = newScore(HighScore.text, ropeFinishPoint.currentScore);
-                congrats.enabled = true;
-
-
-                //when Highscore play Highscore sound
-                _audioController.PlayHighScoreAudio(whichFall);
+                
+                Invoke("DoHighScore", 9);
             }
             else //if not highscore
             {
+                int whichFall = UnityEngine.Random.Range(1, 4);
                 _audioController.PlayFallAudio(whichFall);
             }
         }

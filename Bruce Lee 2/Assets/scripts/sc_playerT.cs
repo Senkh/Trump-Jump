@@ -14,6 +14,7 @@ public class sc_playerT : MonoBehaviour {
     public Text congrats;
     public int TestWhichJump;
     private sc_audioController audio_controller;
+    
   
 
     
@@ -56,7 +57,7 @@ public class sc_playerT : MonoBehaviour {
 
                         int whichJump = Random.Range(1, 4);
                         audio_controller.PlayJumpAudio(whichJump);
-                        animator.SetInteger("jumpInt", whichJump);
+                        animator.SetInteger("jumpInt", 3);
                     }
             }
             
