@@ -22,8 +22,8 @@ public class Rotate : MonoBehaviour {
         //transform.Rotate(Vector3.up * Time.deltaTime, Space.World);
         if (Input.GetKeyDown(KeyCode.Return))
         {
-            //start = !start;
-            start = true;
+            start = !start;
+            //start = true;
             toStop = false;
         }
     }

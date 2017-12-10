@@ -11,6 +11,7 @@ public class FeetCollider : MonoBehaviour {
     private Animator animator;
     private Rotate ropeRotator;
     private sc_StopRopePoint ropeFinishPoint;
+    private sc_audioController _audioController;
     private int previousHighScore ;
     private sc_playerT playerScript;
     public Text HighScore;
@@ -25,8 +26,12 @@ public class FeetCollider : MonoBehaviour {
 
         ropeRotator = GameObject.Find("RopeGravityCenter").GetComponent<Rotate>();
         ropeFinishPoint = GameObject.Find("RopeStopPoint").GetComponent<sc_StopRopePoint>();
+        _audioController = GameObject.Find("AudioController").GetComponent<sc_audioController>();
         HighScore = GameObject.Find("HighScore").GetComponent<Text>();
         congrats = GameObject.Find("Congrats").GetComponent<Text>();
+
+        //initiate rand
+        UnityEngine.Random.InitState(GetInstanceID());
 
     }
 	
@@ -46,15 +51,31 @@ public class FeetCollider : MonoBehaviour {
 
         if (hit.gameObject.tag == "Rope")
         {
-            //GetComponent<>
+            //Drop Animation
             animator.SetBool("Colided", true);
             ropeRotator.toStop = true;
+
+            int whichFall = UnityEngine.Random.Range(1, 4);
+
+            //Stops what character is saying
+            if (_audioController.isAnythingPlayingButMusic())
+                _audioController.StopAllButMusic();
+
             if (ropeFinishPoint.currentScore > previousHighScore)
             {
+                //High Score Sequence
                 animator.SetBool("HighScore", true);
                 playerScript.totalHighScore = ropeFinishPoint.currentScore;
                 HighScore.text = newScore(HighScore.text, ropeFinishPoint.currentScore);
                 congrats.enabled = true;
+
+
+                //when Highscore play Highscore sound
+                _audioController.PlayHighScoreAudio(whichFall);
+            }
+            else //if not highscore
+            {
+                _audioController.PlayFallAudio(whichFall);
             }
         }
 

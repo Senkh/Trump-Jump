@@ -963,6 +963,60 @@ Transform:
   m_Father: {fileID: 1523893642}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 100.74899, y: -0.000015258789, z: -0.000015258789}
+--- !u!1 &587826711
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 587826714}
+  - component: {fileID: 587826712}
+  m_Layer: 0
+  m_Name: AudioController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &587826712
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 587826711}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88cbfc0368c1833489cd4f81bdcd2f28, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Jump1: {fileID: 8300000, guid: fb9b295442b31e54db54125a4ed04f0f, type: 3}
+  Jump2: {fileID: 8300000, guid: 5ac298d19701db941890b661056023d0, type: 3}
+  Jump3: {fileID: 8300000, guid: 08338098ecd30fa4696278a8b6db8950, type: 3}
+  Idle1: {fileID: 8300000, guid: 511453bd624a47f4e93c6dc35a578799, type: 3}
+  Idle2: {fileID: 8300000, guid: 1264407b725cd414ba449fdf95bf9e86, type: 3}
+  Idle3: {fileID: 8300000, guid: 9eb82426dd0b05a498e6903313d961d5, type: 3}
+  Fail1: {fileID: 8300000, guid: 0624cd18664d5d5499602e77e5a4ef43, type: 3}
+  Fail2: {fileID: 8300000, guid: a8d143d9c3daef842bab20b64eb80ca7, type: 3}
+  Fail3: {fileID: 8300000, guid: 3f3a95b8329b16c458dedf1efc17f7ab, type: 3}
+  HScore1: {fileID: 8300000, guid: 4aa0c14ba91d1d848a3d387c19372652, type: 3}
+  HScore2: {fileID: 8300000, guid: ec501e20c3fbd1047b5595a7cba10a08, type: 3}
+  HScore3: {fileID: 8300000, guid: c20f590d051dda64da073c7a765c6bb5, type: 3}
+  Music: {fileID: 8300000, guid: f36f0b8475379e841bc9a055315e6808, type: 3}
+  _Music: {fileID: 0}
+--- !u!4 &587826714
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 587826711}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 18.325127, y: 10.09, z: -65.02186}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &679477967 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1570967179825672, guid: 906155d78313cf24a86bb2ce9f8f3dd5,
@@ -1433,6 +1487,10 @@ Prefab:
       propertyPath: m_Name
       value: Bodyguard_Position Right
       objectReference: {fileID: 0}
+    - target: {fileID: 13700000, guid: c059eac6c93fe40199a39c554ba83887, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 825876f7ad85ce84b9887d9ccfed90b5, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c059eac6c93fe40199a39c554ba83887, type: 3}
   m_IsPrefabParent: 0
@@ -2199,6 +2257,10 @@ Prefab:
       propertyPath: m_Name
       value: Bodyguard_Position_Left
       objectReference: {fileID: 0}
+    - target: {fileID: 13700000, guid: c059eac6c93fe40199a39c554ba83887, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 7aeaaeeed28805646a416c9a2aa34212, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c059eac6c93fe40199a39c554ba83887, type: 3}
   m_IsPrefabParent: 0

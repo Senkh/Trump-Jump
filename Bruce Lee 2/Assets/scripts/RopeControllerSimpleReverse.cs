@@ -53,7 +53,7 @@ public class RopeControllerSimpleReverse : MonoBehaviour
 
 
 
-    void Update()
+    void FixedUpdate()
     {
         //Add more/less rope
         UpdateWinch();

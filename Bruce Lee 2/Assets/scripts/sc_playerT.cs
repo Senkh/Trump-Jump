@@ -12,7 +12,9 @@ public class sc_playerT : MonoBehaviour {
     private Animator animator;
     public int totalHighScore;
     public Text congrats;
-    public int WhichJump;
+    public int TestWhichJump;
+    private sc_audioController audio_controller;
+  
 
     
     int jumpHash = Animator.StringToHash("New State");
@@ -26,7 +28,9 @@ public class sc_playerT : MonoBehaviour {
         totalHighScore = 0;
         Random.InitState(GetInstanceID());
         congrats = GameObject.Find("Congrats").GetComponent<Text>();
-        WhichJump = 3;
+        audio_controller = GameObject.Find("AudioController").GetComponent<sc_audioController>();
+
+        TestWhichJump = 3;
 
     }
 	
@@ -38,7 +42,7 @@ public class sc_playerT : MonoBehaviour {
         //animator.SetBool("Colided", false);
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            //rb.AddForce(transform.up * force, ForceMode.Impulse);
+            //Gets out of celebration
             if (animator.GetBool("HighScore"))
             {
                 animator.SetBool("HighScore", false);
@@ -46,25 +50,34 @@ public class sc_playerT : MonoBehaviour {
                 congrats.enabled = false;
             }
             else
-                if (!animator.GetCurrentAnimatorStateInfo(0).IsTag("Jump"))
-            {
+            {       //if not jumping
+                    if (!animator.GetCurrentAnimatorStateInfo(0).IsTag("Jump"))
+                    {
 
-                //animator.SetInteger("jumpInt", Random.Range(1, 4));
-                animator.SetInteger("jumpInt", WhichJump);
+                        int whichJump = Random.Range(1, 4);
+                        audio_controller.PlayJumpAudio(whichJump);
+                        animator.SetInteger("jumpInt", whichJump);
+                    }
             }
             
             //grounded = false;
             
         }
+        //Drops player imediatly, mostly for testing and fun
         if (Input.GetKeyDown(KeyCode.C))
         {
             //rb.AddForce(transform.up * force, ForceMode.Impulse);
             //rb.AddForce(new Vector3(0, Jumpforce, 0), ForceMode.Impulse);
             animator.SetBool("Colided", true);
+
+            int whichJump = Random.Range(1, 4);
+            audio_controller.PlayJumpAudio(whichJump);
             //grounded = false;
 
         }
     }
+
+    
 
 
 
