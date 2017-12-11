@@ -5,7 +5,7 @@ using UnityEngine;
 public class Rotate : MonoBehaviour {
 
     private Rigidbody rb;
-    private bool start = false;
+    private bool start = true;
     public bool toStop = false;
 
 
@@ -23,8 +23,8 @@ public class Rotate : MonoBehaviour {
         if (Input.GetKeyDown(KeyCode.Return))
         {
             
-            start = !start;
-            //start = true;
+            //start = !start;
+            start = true;
             toStop = false;
         }
     }

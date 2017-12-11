@@ -107,10 +107,10 @@ MonoBehaviour:
     y: 30
     width: 1366
     height: 635
-  m_MinSize: {x: 711, y: 471}
-  m_MaxSize: {x: 18006, y: 14021}
+  m_MinSize: {x: 713, y: 471}
+  m_MaxSize: {x: 18008, y: 14021}
   vertical: 0
-  controlID: 1770
+  controlID: 5337
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -134,7 +134,7 @@ MonoBehaviour:
   m_MinSize: {x: 232, y: 471}
   m_MaxSize: {x: 10002, y: 14021}
   vertical: 1
-  controlID: 1712
+  controlID: 5312
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -206,10 +206,10 @@ MonoBehaviour:
     y: 0
     width: 824
     height: 635
-  m_MinSize: {x: 204, y: 442}
-  m_MaxSize: {x: 4004, y: 8042}
+  m_MinSize: {x: 204, y: 421}
+  m_MaxSize: {x: 4004, y: 8021}
   vertical: 1
-  controlID: 1771
+  controlID: 5338
 --- !u!114 &10
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -415,10 +415,10 @@ MonoBehaviour:
     width: 259
     height: 335
   m_TreeViewState:
-    scrollPos: {x: 0, y: 258}
-    m_SelectedIDs: c07ce5ff
-    m_LastClickedID: -1737536
-    m_ExpandedIDs: 1efbffff38fbffff44fbffff4cfbffff60fbffff68fbffff6cfbffff70fbffff78fbffff8cfbffff8efbffff00000000d8610000f661000034620000
+    scrollPos: {x: 0, y: 50}
+    m_SelectedIDs: 14630000
+    m_LastClickedID: 25364
+    m_ExpandedIDs: 3af2ffff5afafffff2faffff04fbffffa6fbffff00000000a0620000fc620000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -479,20 +479,20 @@ MonoBehaviour:
     m_ShowAllHits: 0
     m_SearchArea: 0
     m_Folders:
-    - Assets/QuickCutsceneCreator/Scripts
+    - Assets/pics
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/QuickCutsceneCreator/Scripts
+  - Assets/pics
   m_LastFoldersGridSize: -1
   m_LastProjectPath: C:\Users\Public\Documents\Unity Projects\Trump-Jump\Bruce Lee
     2
   m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 111}
-    m_SelectedIDs: d6520000
-    m_LastClickedID: 21206
-    m_ExpandedIDs: 00000000b62800007a30000094320000383400000650000058520000d6520000da53000082ac000084ac000000ca9a3bffffff7f
+    scrollPos: {x: 0, y: 67}
+    m_SelectedIDs: 4c320000
+    m_LastClickedID: 12876
+    m_ExpandedIDs: 00000000962800005a30000074320000e64f0000b652000058ad00005aad000000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -520,7 +520,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000b62800007a30000094320000383400000650000058520000d6520000da53000082ac000084ac000000ca9a3bffffff7f
+    m_ExpandedIDs: 00000000962800005a30000074320000e64f0000b652000058ad00005aad000000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -572,7 +572,7 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
     m_NewAssetIndexInList: -1
-    m_ScrollPosition: {x: 0, y: 451}
+    m_ScrollPosition: {x: 0, y: 0}
     m_GridSize: 64
   m_DirectoriesAreaWidth: 139
 --- !u!114 &17
@@ -602,14 +602,14 @@ MonoBehaviour:
     width: 820
     height: 346
   m_SceneLighting: 1
-  lastFramingTime: 898.9827901859701
+  lastFramingTime: 3798.490788944759
   m_2DMode: 0
   m_isRotationLocked: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 17.774633, y: 8.288482, z: -65.73402}
+    m_Target: {x: 16.765999, y: 9.46, z: -64.795}
     speed: 2
-    m_Value: {x: 17.774633, y: 8.288482, z: -65.73402}
+    m_Value: {x: 16.765999, y: 9.46, z: -64.795}
   m_RenderMode: 0
   m_ValidateTrueMetals: 0
   m_SceneViewState:
@@ -632,13 +632,13 @@ MonoBehaviour:
       speed: 2
       m_Value: 0
   m_Rotation:
-    m_Target: {x: -0.14508432, y: 0.7344614, z: -0.16602199, w: -0.6418361}
+    m_Target: {x: -0.08990487, y: -0.88374233, z: 0.19003561, w: -0.41809472}
     speed: 2
-    m_Value: {x: -0.14508432, y: 0.7344614, z: -0.16602199, w: -0.6418361}
+    m_Value: {x: 0.08990487, y: 0.8837423, z: -0.19003561, w: 0.41809472}
   m_Size:
-    m_Target: 2.8470416
+    m_Target: 5.390439
     speed: 2
-    m_Value: 2.8470416
+    m_Value: 5.390439
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -722,7 +722,7 @@ MonoBehaviour:
     y: 92
     width: 279
     height: 614
-  m_ScrollPosition: {x: 0, y: 0}
+  m_ScrollPosition: {x: 0, y: 62.95508}
   m_InspectorMode: 0
   m_PreviewResizer:
     m_CachedPref: -239

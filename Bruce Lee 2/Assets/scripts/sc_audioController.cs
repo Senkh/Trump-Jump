@@ -55,7 +55,7 @@ public class sc_audioController : MonoBehaviour {
         _HScore1 = AddAudio(HScore1, false, false, 0.2f);
         _HScore2 = AddAudio(HScore2, false, false, 0.2f);
         _HScore3 = AddAudio(HScore3, false, false, 0.2f);
-        _Music = AddAudio(Music, true, true, 0.07f);
+        _Music = AddAudio(Music, true, true, 0.05f);
 
         _Music.Play();
 

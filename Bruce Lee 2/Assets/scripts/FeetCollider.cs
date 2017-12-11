@@ -15,6 +15,7 @@ public class FeetCollider : MonoBehaviour {
     private int previousHighScore ;
     private sc_playerT playerScript;
     private sc_cameraMain _cameraControl;
+    private Camera _originalCutsceneCamera;
 
     public Text HighScore;
     public Text Score;
@@ -39,6 +40,8 @@ public class FeetCollider : MonoBehaviour {
         Score = GameObject.Find("Score").GetComponent<Text>();
         congrats = GameObject.Find("Congrats").GetComponent<Text>();
 
+        _originalCutsceneCamera.CopyFrom(_cutSceneController.mainCutsceneCam);
+
         //initiate rand
         UnityEngine.Random.InitState(GetInstanceID());
 
@@ -57,8 +60,10 @@ public class FeetCollider : MonoBehaviour {
 
     private void StopCutScene()
     {
-        _cutSceneController.EndCutscene();
+        //_cutSceneController.EndCutscene();
         _cameraControl.goToMainCam();
+        _cutSceneController.mainCutsceneCam.CopyFrom(_originalCutsceneCamera);
+        
     }
 
     private void StartCutScene()
@@ -66,7 +71,7 @@ public class FeetCollider : MonoBehaviour {
         //Go to CutScene
         _cutSceneController.ActivateCutscene();
         _cameraControl.goToCutScenecam();
-        Invoke("StopCutScene", 9);
+        Invoke("StopCutScene", 6);
     }
 
     private void DoHighScore()
@@ -106,8 +111,10 @@ public class FeetCollider : MonoBehaviour {
             {
                 playerScript.totalHighScore = ropeFinishPoint.currentScore;
                 HighScore.text = newScore(HighScore.text, ropeFinishPoint.currentScore);
-                
-                Invoke("DoHighScore", 9);
+                previousHighScore = ropeFinishPoint.currentScore;
+
+
+                Invoke("DoHighScore", 9.2f);
             }
             else //if not highscore
             {

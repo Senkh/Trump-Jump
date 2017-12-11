@@ -12,12 +12,18 @@ public class sc_playerT : MonoBehaviour {
     private Animator animator;
     public int totalHighScore;
     public Text congrats;
-    public int TestWhichJump;
+    //public int TestWhichJump;
     private sc_audioController audio_controller;
-    
-  
 
-    
+    //jump 3 and 2 are the same
+    private GameObject _jumpPoint3;
+    private GameObject _jumpPoint1;
+
+    private int _nextJump;
+
+
+
+
     int jumpHash = Animator.StringToHash("New State");
 
     // Use this for initialization
@@ -29,9 +35,12 @@ public class sc_playerT : MonoBehaviour {
         totalHighScore = 0;
         Random.InitState(GetInstanceID());
         congrats = GameObject.Find("Congrats").GetComponent<Text>();
+        _jumpPoint3 = GameObject.Find("JumpPoint3");
+        _jumpPoint1 = GameObject.Find("JumpPoint1");
+
         audio_controller = GameObject.Find("AudioController").GetComponent<sc_audioController>();
 
-        TestWhichJump = 3;
+        _nextJump = 3;
 
     }
 	
@@ -55,10 +64,14 @@ public class sc_playerT : MonoBehaviour {
                     if (!animator.GetCurrentAnimatorStateInfo(0).IsTag("Jump"))
                     {
 
-                        int whichJump = Random.Range(1, 4);
-                        audio_controller.PlayJumpAudio(whichJump);
-                        animator.SetInteger("jumpInt", 3);
-                    }
+                        
+                        audio_controller.PlayJumpAudio(_nextJump);
+                        animator.SetInteger("jumpInt", _nextJump);
+
+                        _nextJump = Random.Range(1, 4);
+                        SetNextJump(_nextJump);
+
+                }
             }
             
             //grounded = false;
@@ -78,7 +91,19 @@ public class sc_playerT : MonoBehaviour {
         }
     }
 
-    
+    private void SetNextJump(int jump)
+    {
+        if (jump == 1)
+        {
+            _jumpPoint1.SetActive(true);
+            _jumpPoint3.SetActive(false);
+        }
+        else
+        {
+            _jumpPoint1.SetActive(false);
+            _jumpPoint3.SetActive(true);
+        }
+    }
 
 
 
