@@ -50,6 +50,9 @@ public class sc_playerT : MonoBehaviour {
     {
         //animator.SetBool("Jump", false);
         //animator.SetBool("Colided", false);
+        if (Input.GetKeyDown(KeyCode.Escape))
+            Application.Quit();
+
         if (Input.GetKeyDown(KeyCode.Space))
         {
             //Gets out of celebration
